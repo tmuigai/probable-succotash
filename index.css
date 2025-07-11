@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Trading specific colors */
+  --trading-dark: hsl(240, 10%, 11.8%);
+  --trading-card: hsl(240, 10%, 17.6%);
+  --trading-border: hsl(240, 5.9%, 22%);
+  --bullish: hsl(142, 76%, 36%);
+  --bearish: hsl(0, 84%, 60%);
+  --neutral: hsl(43, 96%, 56%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  /* Custom scrollbar for trading interface */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(240, 10%, 11.8%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(240, 5.9%, 22%);
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(240, 5%, 32%);
+  }
+}
+
+@layer components {
+  /* Trading specific component styles */
+  .trading-card {
+    @apply bg-gray-800 border border-gray-700 rounded-lg;
+  }
+  
+  .trading-button-bullish {
+    @apply bg-green-600 hover:bg-green-700 text-white;
+  }
+  
+  .trading-button-bearish {
+    @apply bg-red-600 hover:bg-red-700 text-white;
+  }
+  
+  .trading-text-bullish {
+    @apply text-green-400;
+  }
+  
+  .trading-text-bearish {
+    @apply text-red-400;
+  }
+  
+  .trading-text-neutral {
+    @apply text-yellow-400;
+  }
+  
+  .trading-badge-bullish {
+    @apply bg-green-500/20 text-green-400 border-green-500/30;
+  }
+  
+  .trading-badge-bearish {
+    @apply bg-red-500/20 text-red-400 border-red-500/30;
+  }
+  
+  .trading-badge-neutral {
+    @apply bg-yellow-500/20 text-yellow-400 border-yellow-500/30;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
+  }
+  
+  /* Trading specific utilities */
+  .font-trading {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-price {
+    @apply font-mono text-sm;
+  }
+  
+  .bg-trading-dark {
+    background-color: hsl(240, 10%, 11.8%);
+  }
+  
+  .bg-trading-card {
+    background-color: hsl(240, 10%, 17.6%);
+  }
+  
+  .border-trading {
+    border-color: hsl(240, 5.9%, 22%);
+  }
+}
