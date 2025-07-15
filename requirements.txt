@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+websockets
+pandas
+numpy
+python-dotenv
+schedule
+redis
+selenium
+alpha_vantage
+finnhub-python
+ta
+pytz
+backtrader
+dask
+plotly
